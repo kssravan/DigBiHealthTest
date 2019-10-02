@@ -23,9 +23,12 @@ const user = {
 }
 
 export default class App extends Component {
-  state = {
-    messages: [],
-    loadEarlier: true,
+  constructor(props) {
+    super(props);
+    this.state = {
+      messages: props.messages || [],
+      loadEarlier: true,
+    }
   }
 
   _isMounted = false
@@ -51,7 +54,7 @@ export default class App extends Component {
     this._isMounted = false
   }
 
-  onLoadEarlier = () => {
+  onLoadEarlier = (messages) => {
     this.setState(previousState => {
       return {
         isLoadingEarlier: true,
@@ -64,7 +67,7 @@ export default class App extends Component {
           return {
             messages: GiftedChat.prepend(
               previousState.messages,
-              earlierMessages,
+              messages || earlierMessages,
               true,
             ),
             loadEarlier: false,
