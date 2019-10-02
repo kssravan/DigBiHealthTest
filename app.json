@@ -27,7 +27,7 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.android.sravan.chatroom",
+      "package": "com.android.sravan.chatroom"
     },
     "entryPoint": "node_modules/expo/AppEntry.js",
     "description": ""
